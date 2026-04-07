@@ -57,26 +57,27 @@ if [[ ! -f /opt/openmontage/.env ]]; then
   fi
   cp /opt/openmontage/.env.example /opt/openmontage/.env
 
-  read -rp "Enter FAL_KEY (or press Enter to skip): " FAL_KEY_INPUT
-  if [[ -n "${FAL_KEY_INPUT}" ]]; then
-    sed -i "s|^FAL_KEY=.*|FAL_KEY=${FAL_KEY_INPUT}|" /opt/openmontage/.env
-  else
-    sed -i "s|^FAL_KEY=.*|# FAL_KEY=your-key-here|" /opt/openmontage/.env
-  fi
+  # API keys are collected by ct/openMontage.sh on the host (which has a TTY)
+  # and passed in as environment variables FAL_KEY, ELEVENLABS_API_KEY, OPENAI_API_KEY
+  python3 - <<'PYEOF'
+import re, os
 
-  read -rp "Enter ELEVENLABS_API_KEY (or press Enter to skip): " ELEVENLABS_INPUT
-  if [[ -n "${ELEVENLABS_INPUT}" ]]; then
-    sed -i "s|^ELEVENLABS_API_KEY=.*|ELEVENLABS_API_KEY=${ELEVENLABS_INPUT}|" /opt/openmontage/.env
-  else
-    sed -i "s|^ELEVENLABS_API_KEY=.*|# ELEVENLABS_API_KEY=your-key-here|" /opt/openmontage/.env
-  fi
+env_file = '/opt/openmontage/.env'
+content = open(env_file).read()
 
-  read -rp "Enter OPENAI_API_KEY (or press Enter to skip): " OPENAI_INPUT
-  if [[ -n "${OPENAI_INPUT}" ]]; then
-    sed -i "s|^OPENAI_API_KEY=.*|OPENAI_API_KEY=${OPENAI_INPUT}|" /opt/openmontage/.env
-  else
-    sed -i "s|^OPENAI_API_KEY=.*|# OPENAI_API_KEY=your-key-here|" /opt/openmontage/.env
-  fi
+for var, key in [
+    ('FAL_KEY',            'FAL_KEY'),
+    ('ELEVENLABS_API_KEY', 'ELEVENLABS_API_KEY'),
+    ('OPENAI_API_KEY',     'OPENAI_API_KEY'),
+]:
+    value = os.environ.get(var, '')
+    if value:
+        content = re.sub(r'^' + key + r'=.*', key + '=' + value, content, flags=re.M)
+    else:
+        content = re.sub(r'^' + key + r'=.*', '# ' + key + '=your-key-here', content, flags=re.M)
+
+open(env_file, 'w').write(content)
+PYEOF
 fi
 msg_ok "Configured Environment"
 
