@@ -9,6 +9,8 @@ source /dev/stdin <<<"$FUNCTIONS_FILE_PATH"
 color
 verb_ip6
 catch_errors
+# shellcheck source=/dev/null
+[[ -f /root/.install_env ]] && source /root/.install_env
 setting_up_container
 network_check
 update_os

@@ -49,23 +49,27 @@ function update_script() {
 
 function install_script() {
   # Collect API keys here on the host where a TTY is available.
-  # Values are exported and passed into the container as environment variables.
   read -rsp "Enter FAL_KEY (or press Enter to skip): " FAL_KEY
   echo
-  export FAL_KEY
 
   read -rsp "Enter ELEVENLABS_API_KEY (or press Enter to skip): " ELEVENLABS_API_KEY
   echo
-  export ELEVENLABS_API_KEY
 
   read -rsp "Enter OPENAI_API_KEY (or press Enter to skip): " OPENAI_API_KEY
   echo
-  export OPENAI_API_KEY
 }
 
 install_script
 start
 build_container
+
+# Pass API keys into container filesystem before install runs
+pct exec "$CTID" -- bash -c "cat > /root/.install_env" <<EOF
+export FAL_KEY='${FAL_KEY}'
+export ELEVENLABS_API_KEY='${ELEVENLABS_API_KEY}'
+export OPENAI_API_KEY='${OPENAI_API_KEY}'
+EOF
+
 description
 
 msg_ok "Completed Successfully!\n"
