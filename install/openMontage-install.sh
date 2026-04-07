@@ -51,6 +51,10 @@ msg_ok "Installed Node.js Dependencies"
 
 msg_info "Configuring Environment"
 if [[ ! -f /opt/openmontage/.env ]]; then
+  if [[ ! -f /opt/openmontage/.env.example ]]; then
+    msg_error ".env.example not found in repository — cannot configure environment"
+    exit 1
+  fi
   cp /opt/openmontage/.env.example /opt/openmontage/.env
 
   read -rp "Enter FAL_KEY (or press Enter to skip): " FAL_KEY_INPUT
