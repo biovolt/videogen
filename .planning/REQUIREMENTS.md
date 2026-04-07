@@ -14,14 +14,14 @@
 
 ### Application Install
 
-- [ ] **INST-01**: Python 3.10+ installed via `setup_uv` (PEP 668 safe)
-- [ ] **INST-02**: Node.js 18+ installed via `setup_nodejs`
-- [ ] **INST-03**: FFmpeg installed via `setup_ffmpeg`
-- [ ] **INST-04**: OpenMontage cloned from GitHub to `/opt/openmontage`
-- [ ] **INST-05**: Python dependencies installed (requirements.txt + piper-tts)
-- [ ] **INST-06**: Node dependencies installed (remotion-composer/)
-- [ ] **INST-07**: `.env` created from `.env.example`
-- [ ] **INST-08**: Optional FAL_KEY prompt during install
+- [x] **INST-01**: Python 3.10+ installed via `setup_uv` (PEP 668 safe)
+- [x] **INST-02**: Node.js 18+ installed via `setup_nodejs`
+- [x] **INST-03**: FFmpeg installed via `setup_ffmpeg`
+- [x] **INST-04**: OpenMontage cloned from GitHub to `/opt/openmontage`
+- [x] **INST-05**: Python dependencies installed (requirements.txt + piper-tts)
+- [x] **INST-06**: Node dependencies installed (remotion-composer/)
+- [x] **INST-07**: `.env` created from `.env.example`
+- [x] **INST-08**: Optional FAL_KEY prompt during install
 
 ### Update Mechanism
 
@@ -64,14 +64,14 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| INST-01 | Phase 1 | Pending |
-| INST-02 | Phase 1 | Pending |
-| INST-03 | Phase 1 | Pending |
-| INST-04 | Phase 1 | Pending |
-| INST-05 | Phase 1 | Pending |
-| INST-06 | Phase 1 | Pending |
-| INST-07 | Phase 1 | Pending |
-| INST-08 | Phase 1 | Pending |
+| INST-01 | Phase 1 | Complete |
+| INST-02 | Phase 1 | Complete |
+| INST-03 | Phase 1 | Complete |
+| INST-04 | Phase 1 | Complete |
+| INST-05 | Phase 1 | Complete |
+| INST-06 | Phase 1 | Complete |
+| INST-07 | Phase 1 | Complete |
+| INST-08 | Phase 1 | Complete |
 | CT-01 | Phase 2 | Pending |
 | CT-02 | Phase 2 | Pending |
 | CT-03 | Phase 2 | Pending |

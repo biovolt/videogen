@@ -12,7 +12,7 @@ Three phases deliver a PR-ready community-scripts installer. Phase 1 builds the 
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Install Script** - In-container installer: all deps, OpenMontage clone, .env setup
+- [x] **Phase 1: Install Script** - In-container installer: all deps, OpenMontage clone, .env setup (completed 2026-04-07)
 - [ ] **Phase 2: Host Orchestrator and Update** - ct/ script with defaults, container creation, update_script()
 - [ ] **Phase 3: PR Polish** - ShellCheck, output conventions, ASCII header, PR submission
 
@@ -31,7 +31,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 1 plan
 
 Plans:
-- [ ] 01-01-PLAN.md -- Complete install script with all deps, .env setup, and API key prompts
+- [x] 01-01-PLAN.md -- Complete install script with all deps, .env setup, and API key prompts
 
 ### Phase 2: Host Orchestrator and Update
 **Goal**: A working ct/openMontage.sh that creates the LXC container with correct defaults and provides a safe update_script() that preserves .env
@@ -63,6 +63,6 @@ Phases execute in numeric order: 1 → 2 → 3
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Install Script | 0/? | Not started | - |
+| 1. Install Script | 1/1 | Complete   | 2026-04-07 |
 | 2. Host Orchestrator and Update | 0/? | Not started | - |
 | 3. PR Polish | 0/? | Not started | - |
