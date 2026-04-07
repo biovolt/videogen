@@ -28,7 +28,10 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. OpenMontage is cloned to /opt/openmontage and all Python and Node dependencies are installed
   4. A .env file exists at /opt/openmontage/.env (created from .env.example, not overwriting an existing one)
   5. The FAL_KEY prompt appears during install and the supplied value is written to .env
-**Plans**: TBD
+**Plans**: 1 plan
+
+Plans:
+- [ ] 01-01-PLAN.md -- Complete install script with all deps, .env setup, and API key prompts
 
 ### Phase 2: Host Orchestrator and Update
 **Goal**: A working ct/openMontage.sh that creates the LXC container with correct defaults and provides a safe update_script() that preserves .env
