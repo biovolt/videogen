@@ -64,10 +64,6 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| CT-01 | Phase 1 | Pending |
-| CT-02 | Phase 1 | Pending |
-| CT-03 | Phase 1 | Pending |
-| CT-04 | Phase 1 | Pending |
 | INST-01 | Phase 1 | Pending |
 | INST-02 | Phase 1 | Pending |
 | INST-03 | Phase 1 | Pending |
@@ -76,6 +72,10 @@
 | INST-06 | Phase 1 | Pending |
 | INST-07 | Phase 1 | Pending |
 | INST-08 | Phase 1 | Pending |
+| CT-01 | Phase 2 | Pending |
+| CT-02 | Phase 2 | Pending |
+| CT-03 | Phase 2 | Pending |
+| CT-04 | Phase 2 | Pending |
 | UPD-01 | Phase 2 | Pending |
 | UPD-02 | Phase 2 | Pending |
 | UPD-03 | Phase 2 | Pending |
@@ -92,4 +92,4 @@
 
 ---
 *Requirements defined: 2026-04-07*
-*Last updated: 2026-04-07 after initial definition*
+*Last updated: 2026-04-07 after roadmap creation*
