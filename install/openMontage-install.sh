@@ -39,13 +39,13 @@ echo "${RELEASE}" >/opt/OpenMontage_version.txt
 msg_ok "Cloned OpenMontage ${RELEASE}"
 
 msg_info "Installing Python Dependencies"
-cd /opt/openmontage || exit
-$STD uv venv
-$STD uv pip install -r requirements.txt
+cd /opt/openmontage || { msg_error "Failed to change directory to /opt/openmontage"; exit 1; }
+$STD uv venv /opt/openmontage/.venv
+$STD uv pip install --python /opt/openmontage/.venv/bin/python -r requirements.txt
 msg_ok "Installed Python Dependencies"
 
 msg_info "Installing Node.js Dependencies"
-cd /opt/openmontage/remotion-composer || exit
+cd /opt/openmontage/remotion-composer || { msg_error "Failed to change directory to remotion-composer"; exit 1; }
 $STD npm install
 msg_ok "Installed Node.js Dependencies"
 
