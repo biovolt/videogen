@@ -33,7 +33,8 @@ msg_ok "Set up FFmpeg"
 
 msg_info "Cloning OpenMontage"
 $STD git clone https://github.com/calesthio/OpenMontage /opt/openmontage
-RELEASE=$(cd /opt/openmontage && git describe --tags --always 2>/dev/null)
+RELEASE=$(curl -fsSL https://api.github.com/repos/calesthio/OpenMontage/releases/latest \
+  | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
 if [[ -z "${RELEASE}" ]]; then
   RELEASE=$(git -C /opt/openmontage rev-parse --short HEAD)
 fi
