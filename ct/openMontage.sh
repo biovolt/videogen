@@ -33,11 +33,11 @@ function update_script() {
   RELEASE=$(curl -fsSL https://api.github.com/repos/calesthio/OpenMontage/releases/latest | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
   if [[ "${RELEASE}" != "$(cat /opt/OpenMontage_version.txt)" ]]; then
     msg_info "Updating ${APP} to ${RELEASE}"
-    cd /opt/openmontage
+    cd /opt/openmontage || { msg_error "Cannot find /opt/openmontage — aborting update"; exit 1; }
     git pull
     # Preserve .env — do not overwrite user config
     $STD uv pip install --python /opt/openmontage/.venv/bin/python -r requirements.txt
-    cd /opt/openmontage/remotion-composer
+    cd /opt/openmontage/remotion-composer || { msg_error "Cannot find remotion-composer — aborting update"; exit 1; }
     $STD npm install
     echo "${RELEASE}" >/opt/OpenMontage_version.txt
     msg_ok "Updated ${APP} to ${RELEASE}"
