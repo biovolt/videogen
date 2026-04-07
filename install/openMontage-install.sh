@@ -65,7 +65,8 @@ if [[ ! -f /opt/openmontage/.env ]]; then
 import re, os
 
 env_file = '/opt/openmontage/.env'
-content = open(env_file).read()
+with open(env_file) as f:
+    content = f.read()
 
 for var, key in [
     ('FAL_KEY',            'FAL_KEY'),
@@ -74,11 +75,23 @@ for var, key in [
 ]:
     value = os.environ.get(var, '')
     if value:
-        content = re.sub(r'^' + key + r'=.*', key + '=' + value, content, flags=re.M)
+        replacement = key + '=' + value
+        content = re.sub(
+            r'^' + key + r'=.*',
+            lambda m, r=replacement: r,
+            content,
+            flags=re.M
+        )
     else:
-        content = re.sub(r'^' + key + r'=.*', '# ' + key + '=your-key-here', content, flags=re.M)
+        content = re.sub(
+            r'^' + key + r'=.*',
+            '# ' + key + '=your-key-here',
+            content,
+            flags=re.M
+        )
 
-open(env_file, 'w').write(content)
+with open(env_file, 'w') as f:
+    f.write(content)
 PYEOF
 fi
 msg_ok "Configured Environment"
