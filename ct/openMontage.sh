@@ -36,9 +36,9 @@ function update_script() {
     cd /opt/openmontage
     git pull
     # Preserve .env — do not overwrite user config
-    uv pip install --python /opt/openmontage/.venv/bin/python -r requirements.txt
+    $STD uv pip install --python /opt/openmontage/.venv/bin/python -r requirements.txt
     cd /opt/openmontage/remotion-composer
-    npm install
+    $STD npm install
     echo "${RELEASE}" >/opt/OpenMontage_version.txt
     msg_ok "Updated ${APP} to ${RELEASE}"
   else
