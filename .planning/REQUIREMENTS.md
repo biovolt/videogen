@@ -7,10 +7,10 @@
 
 ### Container Creation
 
-- [ ] **CT-01**: Script creates Debian 12 LXC with defaults (2 CPU, 2GB RAM, 12GB disk)
-- [ ] **CT-02**: Advanced mode allows custom CPU, RAM, disk, hostname, and network settings
-- [ ] **CT-03**: User can optionally enable GPU passthrough during advanced setup
-- [ ] **CT-04**: Script uses `build.func` framework for container creation
+- [x] **CT-01**: Script creates Debian 12 LXC with defaults (2 CPU, 2GB RAM, 12GB disk)
+- [x] **CT-02**: Advanced mode allows custom CPU, RAM, disk, hostname, and network settings
+- [x] **CT-03**: User can optionally enable GPU passthrough during advanced setup
+- [x] **CT-04**: Script uses `build.func` framework for container creation
 
 ### Application Install
 
@@ -25,10 +25,10 @@
 
 ### Update Mechanism
 
-- [ ] **UPD-01**: `update_script()` detects current vs upstream version
-- [ ] **UPD-02**: Git pull fetches latest OpenMontage code
-- [ ] **UPD-03**: Dependencies re-installed after pull (pip + npm)
-- [ ] **UPD-04**: `.env` file preserved across updates
+- [x] **UPD-01**: `update_script()` detects current vs upstream version
+- [x] **UPD-02**: Git pull fetches latest OpenMontage code
+- [x] **UPD-03**: Dependencies re-installed after pull (pip + npm)
+- [x] **UPD-04**: `.env` file preserved across updates
 
 ### PR Compatibility
 
@@ -72,14 +72,14 @@
 | INST-06 | Phase 1 | Complete |
 | INST-07 | Phase 1 | Complete |
 | INST-08 | Phase 1 | Complete |
-| CT-01 | Phase 2 | Pending |
-| CT-02 | Phase 2 | Pending |
-| CT-03 | Phase 2 | Pending |
-| CT-04 | Phase 2 | Pending |
-| UPD-01 | Phase 2 | Pending |
-| UPD-02 | Phase 2 | Pending |
-| UPD-03 | Phase 2 | Pending |
-| UPD-04 | Phase 2 | Pending |
+| CT-01 | Phase 2 | Complete |
+| CT-02 | Phase 2 | Complete |
+| CT-03 | Phase 2 | Complete |
+| CT-04 | Phase 2 | Complete |
+| UPD-01 | Phase 2 | Complete |
+| UPD-02 | Phase 2 | Complete |
+| UPD-03 | Phase 2 | Complete |
+| UPD-04 | Phase 2 | Complete |
 | PR-01 | Phase 3 | Pending |
 | PR-02 | Phase 3 | Pending |
 | PR-03 | Phase 3 | Pending |
