@@ -43,7 +43,10 @@ Plans:
   3. GPU passthrough option is exposed in advanced mode and defaults to off
   4. Running the update option detects whether a newer version is available before pulling
   5. After update, .env is unchanged and all dependencies reflect the new version
-**Plans**: TBD
+**Plans**: 1 plan
+
+Plans:
+- [ ] 02-01-PLAN.md -- Rewrite ct/ script to canonical pattern, fix defaults, complete update_script, clean up install script dead code
 
 ### Phase 3: PR Polish
 **Goal**: Scripts pass all community-scripts PR requirements and are submitted upstream
@@ -64,5 +67,5 @@ Phases execute in numeric order: 1 → 2 → 3
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Install Script | 1/1 | Complete   | 2026-04-07 |
-| 2. Host Orchestrator and Update | 0/? | Not started | - |
+| 2. Host Orchestrator and Update | 0/1 | Not started | - |
 | 3. PR Polish | 0/? | Not started | - |
