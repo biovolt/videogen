@@ -36,7 +36,10 @@ RELEASE=$(curl -fsSL https://api.github.com/repos/calesthio/OpenMontage/releases
 if [[ -z "${RELEASE}" ]]; then
   RELEASE=$(git -C /opt/openmontage rev-parse --short HEAD)
 fi
-echo "${RELEASE}" >/opt/OpenMontage_version.txt
+if [[ -n "${RELEASE}" ]]; then
+  $STD git -C /opt/openmontage checkout "${RELEASE}"
+fi
+{ git -C /opt/openmontage describe --tags --exact-match 2>/dev/null || git -C /opt/openmontage rev-parse --short HEAD; } >/opt/OpenMontage_version.txt
 msg_ok "Cloned OpenMontage ${RELEASE}"
 
 msg_info "Installing Python Dependencies"
@@ -59,7 +62,7 @@ if [[ ! -f /opt/openmontage/.env ]]; then
   cp /opt/openmontage/.env.example /opt/openmontage/.env
 
   # Comment out API key placeholders — users edit .env post-install
-  python3 - <<'PYEOF'
+  /opt/openmontage/.venv/bin/python3 - <<'PYEOF'
 import re, os
 
 env_file = '/opt/openmontage/.env'
