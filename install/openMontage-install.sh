@@ -9,8 +9,6 @@ source /dev/stdin <<<"$FUNCTIONS_FILE_PATH"
 color
 verb_ip6
 catch_errors
-# shellcheck source=/dev/null
-[[ -f /root/.install_env ]] && source /root/.install_env
 setting_up_container
 network_check
 update_os
@@ -60,8 +58,7 @@ if [[ ! -f /opt/openmontage/.env ]]; then
   fi
   cp /opt/openmontage/.env.example /opt/openmontage/.env
 
-  # API keys are collected by ct/openMontage.sh on the host (which has a TTY)
-  # and passed in as environment variables FAL_KEY, ELEVENLABS_API_KEY, OPENAI_API_KEY
+  # Comment out API key placeholders — users edit .env post-install
   python3 - <<'PYEOF'
 import re, os
 
