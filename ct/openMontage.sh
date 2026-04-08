@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
-source <(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/misc/build.func)
 # Copyright (c) 2021-2026 community-scripts ORG
 # Author: calesthio
 # License: MIT | https://github.com/community-scripts/ProxmoxVE/raw/main/LICENSE
 # Source: https://github.com/calesthio/OpenMontage
+# shellcheck disable=SC1090
+source <(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/misc/build.func)
 
 APP="OpenMontage"
 var_tags="${var_tags:-media;ai}"
@@ -27,7 +28,7 @@ function update_script() {
 
   if [[ ! -f /opt/OpenMontage_version.txt ]]; then
     msg_error "No ${APP} installation found!"
-    exit
+    exit 1
   fi
 
   RELEASE=$(curl -fsSL https://api.github.com/repos/calesthio/OpenMontage/releases/latest | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
@@ -41,10 +42,11 @@ function update_script() {
     msg_info "Updating ${APP} to ${RELEASE}"
     cd /opt/openmontage || { msg_error "Cannot find /opt/openmontage"; exit 1; }
     $STD git pull
+    $STD git -C /opt/openmontage checkout "${RELEASE}"
     msg_ok "Pulled ${APP} ${RELEASE}"
 
     msg_info "Reinstalling Python dependencies"
-    $STD uv pip install --python /opt/openmontage/.venv/bin/python -r requirements.txt
+    $STD uv pip install --python /opt/openmontage/.venv/bin/python -r /opt/openmontage/requirements.txt
     msg_ok "Reinstalled Python dependencies"
 
     msg_info "Reinstalling Node.js dependencies"
@@ -52,12 +54,12 @@ function update_script() {
     $STD npm install
     msg_ok "Reinstalled Node.js dependencies"
 
-    echo "${RELEASE}" >/opt/OpenMontage_version.txt
+    { git -C /opt/openmontage describe --tags --exact-match 2>/dev/null || git -C /opt/openmontage rev-parse --short HEAD; } >/opt/OpenMontage_version.txt
     msg_ok "Updated ${APP} to ${RELEASE}"
   else
     msg_ok "No update required. ${APP} is already at ${RELEASE}"
   fi
-  exit
+  exit 0
 }
 
 start
