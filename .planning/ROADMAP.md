@@ -57,7 +57,10 @@ Plans:
   2. Every install step is wrapped with msg_info / msg_ok / msg_error output
   3. The install script closes with motd_ssh, customize, and cleanup_lxc in the correct order
   4. All commands in the install script use the $STD prefix for output control
-**Plans**: TBD
+**Plans**: 1 plan
+
+Plans:
+- [ ] 03-01-PLAN.md -- Fix review warnings, ShellCheck compliance, and PR checklist verification
 
 ## Progress
 
@@ -68,4 +71,4 @@ Phases execute in numeric order: 1 → 2 → 3
 |-------|----------------|--------|-----------|
 | 1. Install Script | 1/1 | Complete   | 2026-04-07 |
 | 2. Host Orchestrator and Update | 1/1 | Complete   | 2026-04-08 |
-| 3. PR Polish | 0/? | Not started | - |
+| 3. PR Polish | 0/1 | Not started | - |
