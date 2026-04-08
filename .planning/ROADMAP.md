@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Install Script** - In-container installer: all deps, OpenMontage clone, .env setup (completed 2026-04-07)
 - [x] **Phase 2: Host Orchestrator and Update** - ct/ script with defaults, container creation, update_script() (completed 2026-04-08)
-- [ ] **Phase 3: PR Polish** - ShellCheck, output conventions, ASCII header, PR submission
+- [x] **Phase 3: PR Polish** - ShellCheck, output conventions, ASCII header, PR submission (completed 2026-04-08)
 
 ## Phase Details
 
@@ -60,7 +60,7 @@ Plans:
 **Plans**: 1 plan
 
 Plans:
-- [ ] 03-01-PLAN.md -- Fix review warnings, ShellCheck compliance, and PR checklist verification
+- [x] 03-01-PLAN.md -- Fix review warnings, ShellCheck compliance, and PR checklist verification
 
 ## Progress
 
@@ -71,4 +71,4 @@ Phases execute in numeric order: 1 → 2 → 3
 |-------|----------------|--------|-----------|
 | 1. Install Script | 1/1 | Complete   | 2026-04-07 |
 | 2. Host Orchestrator and Update | 1/1 | Complete   | 2026-04-08 |
-| 3. PR Polish | 0/1 | Not started | - |
+| 3. PR Polish | 1/1 | Complete   | 2026-04-08 |

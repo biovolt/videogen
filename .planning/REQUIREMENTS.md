@@ -32,10 +32,10 @@
 
 ### PR Compatibility
 
-- [ ] **PR-01**: All commands use `$STD` prefix for output control
-- [ ] **PR-02**: Progress messages use `msg_info`/`msg_ok`/`msg_error`
-- [ ] **PR-03**: Install script uses `motd_ssh` + `customize` + `cleanup_lxc` closing sequence
-- [ ] **PR-04**: Scripts pass ShellCheck with zero warnings
+- [x] **PR-01**: All commands use `$STD` prefix for output control
+- [x] **PR-02**: Progress messages use `msg_info`/`msg_ok`/`msg_error`
+- [x] **PR-03**: Install script uses `motd_ssh` + `customize` + `cleanup_lxc` closing sequence
+- [x] **PR-04**: Scripts pass ShellCheck with zero warnings
 
 ## v2 Requirements
 
@@ -80,10 +80,10 @@
 | UPD-02 | Phase 2 | Complete |
 | UPD-03 | Phase 2 | Complete |
 | UPD-04 | Phase 2 | Complete |
-| PR-01 | Phase 3 | Pending |
-| PR-02 | Phase 3 | Pending |
-| PR-03 | Phase 3 | Pending |
-| PR-04 | Phase 3 | Pending |
+| PR-01 | Phase 3 | Complete |
+| PR-02 | Phase 3 | Complete |
+| PR-03 | Phase 3 | Complete |
+| PR-04 | Phase 3 | Complete |
 
 **Coverage:**
 - v1 requirements: 16 total
