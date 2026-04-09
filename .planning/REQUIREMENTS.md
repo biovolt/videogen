@@ -21,7 +21,7 @@
 - [x] **INST-05**: Python dependencies installed (requirements.txt + piper-tts)
 - [x] **INST-06**: Node dependencies installed (remotion-composer/)
 - [x] **INST-07**: `.env` created from `.env.example`
-- [x] **INST-08**: Optional FAL_KEY prompt during install
+- [x] **INST-08**: `.env` created with API key placeholders; post-install instructions shown in terminal and Proxmox notes
 
 ### Update Mechanism
 
