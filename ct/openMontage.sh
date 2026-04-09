@@ -4,7 +4,8 @@
 # License: MIT | https://github.com/community-scripts/ProxmoxVE/raw/main/LICENSE
 # Source: https://github.com/calesthio/OpenMontage
 # shellcheck disable=SC1090
-source <(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/misc/build.func)
+# TODO: Change back to community-scripts/ProxmoxVE before PR submission
+source <(curl -fsSL https://raw.githubusercontent.com/biovolt/ProxmoxVE/main/misc/build.func)
 
 APP="OpenMontage"
 var_tags="${var_tags:-media;ai}"
